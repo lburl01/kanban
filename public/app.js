@@ -20,10 +20,14 @@ $.ajax({
 })
 
 $("#add-task").on('click', function createTask() {
-  var description = $taskDescription.val(); // want to save these as variables so they are cached
+  var description = $taskDescription.val();
   var board = $taskBoard.val();
   var name = $taskName.val();
   var label = $('[name=label]:checked').val(); // don't need to save this as a cached value because we want it to be changeable
+
+  $('#task-description').val('');
+  $('#board-name').val('');
+  $('#task-name').val('');
 
   return $.ajax({
     method: 'POST',
@@ -35,4 +39,5 @@ $("#add-task").on('click', function createTask() {
       label: label
     }
   })
+
 })

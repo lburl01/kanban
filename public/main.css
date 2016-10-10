@@ -3,10 +3,16 @@ html, body {
   color: #fff;
 }
 
-button {
+.btn {
   background-color: #a63e14;
   border-radius: 5px;
   border: 0;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #f54123;
+  color: #fff;
 }
 
 input {
