@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'yaml'
-require 'task'
+require 'models/task'
 require 'json'
 require "sinatra/cross_origin"
 
