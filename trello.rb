@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'yaml'
-require 'task'
+require_relative 'models/task'
 require 'json'
 require "sinatra/cross_origin"
 
@@ -31,5 +31,5 @@ end
 
 get '/api/tasks' do
   # Task.all.to_json
-  JSON.dumps '{"board": "To Read", "name": "PragProg Bookshelf", "description": "Read all the books", "label": "high"}'
+  JSON.dump '{"board": "To Read", "name": "PragProg Bookshelf", "description": "Read all the books", "label": "high"}'
 end
