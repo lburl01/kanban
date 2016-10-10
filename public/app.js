@@ -1,5 +1,7 @@
 var $tasks = $('#tasks')
 
+var $taskBoard = $('#board-name')
+var $taskName = $('#task-name')
 var $taskDescription = $('#task-description')
 
 var $createTaskBtn = $('#create-task')
@@ -19,12 +21,18 @@ $.ajax({
 
 function createTask() {
   var description = $taskDescription.val();
+  var board = $taskBoard.val();
+  var name = $taskName.val();
+  var priority = $('[name=priority]:checked').val();
 
   return $.ajax({
     method: 'POST',
-    url: '/api/taks',
+    url: '/api/task',
     data: {
-      description: description
+      board: board,
+      name: name,
+      description: description,
+      priority: priority
     }
   });
 }

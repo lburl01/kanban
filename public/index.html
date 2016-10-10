@@ -3,16 +3,50 @@
   <head>
     <meta charset="utf-8">
     <title>Lello Board</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" media="screen" title="no title">
   </head>
   <body>
+    <div class="container">
 
     <h2>Welcome to your LELLO Board</h2>
 
-    <p id="tasks"></p>
+    <ul id="tasks">
 
-    <input type="text" id="task-description">
-    <button id="create-task">Create Task</button>
+    </ul>
 
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Board</span>
+      <input type="text" class="form-control" placeholder="Board Name" aria-describedby="sizing-addon1" id='board-name'>
+    </div>
+    <br />
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Task Name</span>
+      <input type="text" class="form-control" placeholder="Task Name" aria-describedby="sizing-addon1" id="task-name">
+    </div>
+    <br />
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon" id="sizing-addon1">Description</span>
+      <input type="text" class="form-control" placeholder="Task Description" aria-describedby="sizing-addon1" id="task-description">
+    </div>
+    <br />
+    <div class="checkbox">
+      <label>
+        <input type="radio" name="priority" id="low" value="low"> Low Priority
+      </label>
+      <label>
+        <input type="radio" name="priority" id="med" value="medium"> Medium Priority
+      </label>
+      <label>
+        <input type="radio" name="priority" id="high" value="high"> High Priority
+      </label>
+    </div>
+    <br />
+    <button id="add-task">ADD TASK</button>
+
+    </div>
+
+    <script scr="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="app.js"></script>
   </body>

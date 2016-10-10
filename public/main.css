@@ -1,0 +1,15 @@
+html, body {
+  background-color: #558a86;
+  color: #fff;
+}
+
+button {
+  background-color: #a63e14;
+  border-radius: 5px;
+  border: 0;
+  padding: 2%;
+}
+
+input {
+  border-radius: 15px;
+}
