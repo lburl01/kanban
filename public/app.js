@@ -4,27 +4,26 @@ var $taskBoard = $('#board-name')
 var $taskName = $('#task-name')
 var $taskDescription = $('#task-description')
 
-var $createTaskBtn = $('#create-task')
+var $addTaskBtn = $('#add-task')
 
 $.ajax({
   method: 'GET',
   url: '/api/tasks',
   dataType: 'json'
 }).done(function(tasks) { // when this request is done, execute this function:
-  var boards1 = tasks.map(function(task) { return task.board })
-  var boards2 = $.unique(boards1)
+  var all_boards = tasks.map(function(task) { return task.board })
+  var unique_boards = $.unique(all_boards)
   var taskNames = tasks.map(function(task) { return task.name; })
-  $tasks.text(boards2.join(', '))
-  // $tasks.text(taskNames.join(', '))
+  $tasks.text("Your Current Boards: " + unique_boards.join(', ') + ".")
 }).fail(function() {
   console.log('help me')
 })
 
-function createTask() {
-  var description = $taskDescription.val();
+$("#add-task").on('click', function createTask() {
+  var description = $taskDescription.val(); // want to save these as variables so they are cached
   var board = $taskBoard.val();
   var name = $taskName.val();
-  var priority = $('[name=priority]:checked').val();
+  var label = $('[name=label]:checked').val(); // don't need to save this as a cached value because we want it to be changeable
 
   return $.ajax({
     method: 'POST',
@@ -33,7 +32,7 @@ function createTask() {
       board: board,
       name: name,
       description: description,
-      priority: priority
+      label: label
     }
-  });
-}
+  })
+})
