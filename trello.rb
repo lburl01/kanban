@@ -30,6 +30,5 @@ options '/*' do
 end
 
 get '/api/tasks' do
-  # Task.all.to_json
-  JSON.dump '{"board": "To Read", "name": "PragProg Bookshelf", "description": "Read all the books", "label": "high"}'
+  Task.all.to_json
 end
