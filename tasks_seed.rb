@@ -1,5 +1,5 @@
-require 'task'
-require '001_create_tasks'
+require_relative 'models/task'
+require_relative 'db/migrate/001_create_tasks'
 
 def main
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
