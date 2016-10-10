@@ -11,10 +11,11 @@ $.ajax({
   url: '/api/tasks',
   dataType: 'json'
 }).done(function(tasks) { // when this request is done, execute this function:
-  var boards = tasks.map(function(task) { return task.board; })
+  var boards1 = tasks.map(function(task) { return task.board })
+  var boards2 = $.unique(boards1)
   var taskNames = tasks.map(function(task) { return task.name; })
-  // $tasks.text(boards.join(', '))
-  $tasks.text(taskNames.join(', '))
+  $tasks.text(boards2.join(', '))
+  // $tasks.text(taskNames.join(', '))
 }).fail(function() {
   console.log('help me')
 })
