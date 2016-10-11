@@ -40,9 +40,9 @@ post '/api/task' do
   return task.to_json
 end
 
-# delete '/api/task/:id' do |id|
-#   task = Task.find_by_id(id)
-#   unless task.nil?
-#     task.update(is_deleted: true)
-#   end
-# end
+put '/api/task/:id' do |id|
+  task = Task.find_by_id(id)
+  unless task.nil?
+    task.update(deleted: true)
+  end
+end

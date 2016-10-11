@@ -42,32 +42,34 @@ setInterval(function() {
     $tasks.empty()
 
     tasks.forEach(function(task) {
-      var $li = $('<li>').appendTo($tasks)
-      var $span = $('<span>').text(task.name).appendTo($li)
-      var $label = $('<span>').text("•").attr('class', task.label).appendTo($li)
-      var $delete = $('<button>').text(" X ").addClass('delete').appendTo($li)
-      var $p = $('<p>').addClass('task-description').text(task.description).appendTo($li)
+      if (task.deleted == false ) {
+        var $li = $('<li>').appendTo($tasks)
+        var $span = $('<span>').text(task.name).appendTo($li)
+        var $label = $('<span>').text("•").attr('class', task.label).appendTo($li)
+        var $delete = $('<button>').text(" X ").addClass('delete').appendTo($li)
+        var $p = $('<p>').addClass('task-description').text(task.description).appendTo($li)
 
-      $span.mouseover(function(){
-        $p.slideDown();
-      }).mouseout(function() {
-        $p.slideUp();
+        $span.mouseover(function(){
+          $p.slideDown();
+        }).mouseout(function() {
+          $p.slideUp();
+        })
+
+        $delete.click(function() {
+          $li.remove();
+
+          $.ajax({
+            method: 'PUT',
+            url: '/api/task/' + task.id
+          })
+        })
+      }
       })
-
-      $delete.click(function() {
-        $li.remove();
-
-        // $.ajax({
-        //   method: 'DELETE'
-        //   url: '/api/tasks/' + task.id
-        // })
-      })
-    })
-    var allBoards = tasks.map(function(task) { return task.board })
-    var uniqueBoards = $.unique(allBoards)
-    $boards.empty()
-    uniqueBoards.forEach(function(board) {
-      $boards.append('<li>' + board + '</li>')})
+      var allBoards = tasks.map(function(task) { return task.board })
+      var uniqueBoards = $.unique(allBoards)
+      $boards.empty()
+      uniqueBoards.forEach(function(board) {
+        $boards.append('<li>' + board + '</li>')})
   })
 }, 10000)
 //
