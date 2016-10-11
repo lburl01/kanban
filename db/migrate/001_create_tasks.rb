@@ -7,6 +7,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :description
       t.string :label
+      t.boolean :deleted
       t.datetime :created_at
       t.datetime :updated_at
     end
