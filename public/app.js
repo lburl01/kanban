@@ -20,17 +20,6 @@ $.ajax({
   console.log('help me')
 })
 
-// $.ajax({
-//   method: 'GET',
-//   url: '/api/tasks',
-//   dataType: 'json'
-// }).done(function(tasks) {
-//   var all_tasks = tasks.map(function(task) { return task.name })
-//   $tasks.text(all_tasks.join(', '))
-// }).fail(function() {
-//   console.log('help me')
-// })
-
 $("#add-task").on('click', function createTask() {
   var description = $taskDescription.val();
   var board = $taskBoard.val();
@@ -58,15 +47,6 @@ $.ajax({
   url: '/api/tasks',
   dataType: 'json'
 }).done(function(tasks) {
-  var name = $taskName.val();
-  var mapped_tasks = tasks.map(function(task) {
-    var task_item = $( "<li>" ).text( $( name ).text( ) ).get( 0 );
-    return task_item
-  })
-  $tasks.append( mapped_tasks );
+  tasks.map(function(task) {
+    $tasks.append('<li>' + task.name + '</li>')})
 })
-
-    // for each task in tasks
-    // take each content of task.name
-    // append a li
-    // to the ul with id "tasks"
