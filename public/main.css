@@ -87,3 +87,7 @@ input {
   border-radius: 100%;
   font-weight: bolder;
 }
+
+.task-description {
+  display: none;
+}

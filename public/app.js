@@ -41,15 +41,16 @@ setInterval(function() {
   }).done(function(tasks) {
     $tasks.empty()
     tasks.forEach(function(task) {
-      var $li = $('<li>').text(task.name).appendTo($tasks)
+      var $li = $('<li>').appendTo($tasks)
+      var $span = $('<span>').text(task.name).appendTo($li)
       var $label = $('<span>').text("•").attr('class', task.label).appendTo($li)
-      var $p = $('<p>').text(task.description).appendTo($li)
+      var $p = $('<p>').addClass('task-description').text(task.description).appendTo($li)
 
-    // $li.click(function(){
-    //   $("#toggle-task").on('click', function() {
-    //      $("#add-task-toggle").toggle();
-    //   })
-    // })
+      $span.mouseover(function(){
+        $p.slideDown();
+      }).mouseout(function() {
+        $p.slideUp();
+      })
     })
     var allBoards = tasks.map(function(task) { return task.board })
     var uniqueBoards = $.unique(allBoards)
