@@ -34,7 +34,8 @@ get '/api/tasks' do
 end
 
 post '/api/task' do
-  task = Task.create(board: params[:board], name: params[:name], description: params[:description], label: params[:label])
+  task = Task.new(board: params[:board], name: params[:name], description: params[:description], label: params[:label])
+  task.save if task.is_valid?
   status 201
   return task.to_json
 end

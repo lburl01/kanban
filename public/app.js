@@ -7,27 +7,31 @@ var $taskDescription = $('#task-description')
 
 var $addTaskBtn = $('#add-task')
 
-// $("#add-task").on('click', function createTask() {
-//   var description = $taskDescription.val();
-//   var board = $taskBoard.val();
-//   var name = $taskName.val();
-//   var label = $('[name=label]:checked').val();
-//
-//   $('#task-description').val('');
-//   $('#board-name').val('');
-//   $('#task-name').val('');
-//
-//   return $.ajax({
-//     method: 'POST',
-//     url: '/api/task',
-//     data: {
-//       board: board,
-//       name: name,
-//       description: description,
-//       label: label
-//     }
-//   })
-// })
+$("#toggle-task").on('click', function() {
+   $("#add-task-toggle").toggle();
+})
+
+$("#add-task").on('click', function createTask() {
+  var description = $taskDescription.val();
+  var board = $taskBoard.val();
+  var name = $taskName.val();
+  var label = $('[name=label]:checked').val();
+
+  $('#task-description').val('');
+  $('#board-name').val('');
+  $('#task-name').val('');
+
+  return $.ajax({
+    method: 'POST',
+    url: '/api/task',
+    data: {
+      board: board,
+      name: name,
+      description: description,
+      label: label
+    }
+  })
+})
 
 setInterval(function() {
   $.ajax({
@@ -37,7 +41,14 @@ setInterval(function() {
   }).done(function(tasks) {
     $tasks.empty()
     tasks.forEach(function(task) {
-      $tasks.append('<li>' + task.name + '</li>')
+      var $li = $('<li>').text(task.name).attr('class', task.label).appendTo($tasks)
+      var $p = $('<p>').text(task.description).appendTo($li)
+
+    // $li.click(function(){
+    //   $("#toggle-task").on('click', function() {
+    //      $("#add-task-toggle").toggle();
+    //   })
+    // })
     })
     var allBoards = tasks.map(function(task) { return task.board })
     var uniqueBoards = $.unique(allBoards)
@@ -49,7 +60,3 @@ setInterval(function() {
 //
 // var $li = $('<li>').appendTo($boards)
 // $('<a>').attr('href', URL).text(board).appendTo($li)
-
-$("#toggle-task").on('click', function() {
-   $("#add-task-toggle").toggle();
-})
