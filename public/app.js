@@ -30,7 +30,10 @@ $("#add-task").on('click', function createTask() {
       description: description,
       label: label
     }
-  })
+  }).done(function(response){
+    console.log(this);
+    console.log(response);
+  });
 })
 
 setInterval(function() {
