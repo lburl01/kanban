@@ -91,3 +91,9 @@ input {
 .task-description {
   display: none;
 }
+
+button {
+  color: #558a86;
+  background-color: transparent;
+  border: 0px;
+}
