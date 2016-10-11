@@ -4,13 +4,13 @@ require_relative 'db/migrate/001_create_tasks'
 def main
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
-  thing1 = Task.create!(board: 'To Read', name: 'PragProg Bookshelf', description: 'Read all the books', label: 'high', deleted: FALSE)
+  thing1 = Task.create!(board: 'To Read', name: 'PragProg Bookshelf', description: 'Read all the books', label: 'high', deleted: false)
 
-  thing2 = Task.create!(board: 'To Read', name: '57 Exercises', description: 'Chapter Two', label: 'medium', deleted: FALSE)
+  thing2 = Task.create!(board: 'To Read', name: '57 Exercises', description: 'Chapter Two', label: 'medium', deleted: false)
 
-  thing3 = Task.create!(board: 'To Eat', name: 'Asian Noodle Salad', description: 'Get recipe; use tofu', label: 'low', deleted: FALSE)
+  thing3 = Task.create!(board: 'To Eat', name: 'Asian Noodle Salad', description: 'Get recipe; use tofu', label: 'low', deleted: false)
 
-  thing4 = Task.create!(board: 'Shortcuts', name: 'Merge branch to master', description: 'http://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master', label: 'high', deleted: FALSE)
+  thing4 = Task.create!(board: 'Shortcuts', name: 'Merge branch to master', description: 'http://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master', label: 'high', deleted: false)
 
   ActiveRecord::Base.connection.close
 end
