@@ -41,7 +41,8 @@ setInterval(function() {
   }).done(function(tasks) {
     $tasks.empty()
     tasks.forEach(function(task) {
-      var $li = $('<li>').text(task.name).attr('class', task.label).appendTo($tasks)
+      var $li = $('<li>').text(task.name).appendTo($tasks)
+      var $label = $('<span>').text("•").attr('class', task.label).appendTo($li)
       var $p = $('<p>').text(task.description).appendTo($li)
 
     // $li.click(function(){

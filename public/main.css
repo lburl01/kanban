@@ -20,7 +20,7 @@ p, h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-p, ul, label, input {
+ul, input {
   font-size: 1.5em;
   font-family: 'Lato', sans-serif;
 }
@@ -42,7 +42,7 @@ li:first-child {
 }
 
 .btn:hover {
-  background-color: #f54123;
+  background-color: #f77e5e;
   color: #fff;
 }
 
@@ -62,4 +62,28 @@ input {
 
 #add-task-toggle {
   display: none;
+}
+
+.high {
+  padding: 5px;
+  color: #f45844;
+  margin-left: 5px;
+  border-radius: 100%;
+  font-weight: bolder;
+}
+
+.medium {
+  padding: 5px;
+  color: #fbae17;
+  margin-left: 5px;
+  border-radius: 100%;
+  font-weight: bolder;
+}
+
+.low {
+  padding: 5px;
+  color: #6e7f29;
+  margin-left: 5px;
+  border-radius: 100%;
+  font-weight: bolder;
 }
