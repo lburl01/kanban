@@ -39,3 +39,10 @@ post '/api/task' do
   status 201
   return task.to_json
 end
+
+# delete '/api/task/:id' do |id|
+#   task = Task.find_by_id(id)
+#   unless task.nil?
+#     task.update(is_deleted: true)
+#   end
+# end

@@ -97,3 +97,8 @@ button {
   background-color: transparent;
   border: 0px;
 }
+
+button:hover {
+  background-color: #558a86;
+  color: #fff;
+}

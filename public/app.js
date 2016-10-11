@@ -40,6 +40,7 @@ setInterval(function() {
     dataType: 'json'
   }).done(function(tasks) {
     $tasks.empty()
+
     tasks.forEach(function(task) {
       var $li = $('<li>').appendTo($tasks)
       var $span = $('<span>').text(task.name).appendTo($li)
@@ -52,6 +53,15 @@ setInterval(function() {
       }).mouseout(function() {
         $p.slideUp();
       })
+
+      $delete.click(function() {
+        $li.remove();
+
+        // $.ajax({
+        //   method: 'DELETE'
+        //   url: '/api/tasks/' + task.id
+        // })
+      })
     })
     var allBoards = tasks.map(function(task) { return task.board })
     var uniqueBoards = $.unique(allBoards)
@@ -59,7 +69,7 @@ setInterval(function() {
     uniqueBoards.forEach(function(board) {
       $boards.append('<li>' + board + '</li>')})
   })
-}, 5000)
+}, 10000)
 //
 // var $li = $('<li>').appendTo($boards)
 // $('<a>').attr('href', URL).text(board).appendTo($li)
