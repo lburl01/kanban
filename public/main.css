@@ -1,3 +1,4 @@
+
 html, body {
   background-color: #558a86;
   color: #fff;
@@ -19,13 +20,14 @@ p, h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-p, ul, li, label, input {
+p, ul, label, input {
   font-size: 1.5em;
   font-family: 'Lato', sans-serif;
 }
 
 li {
   border-bottom: 2px solid #b7c7bd;
+  font-size: 1em;
 }
 
 li:first-child {
@@ -56,4 +58,8 @@ input {
 
 .buffer {
   padding: 2% 0;
+}
+
+#add-task-toggle {
+  display: none;
 }
