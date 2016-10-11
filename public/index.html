@@ -4,47 +4,69 @@
     <meta charset="utf-8">
     <title>Lello Board</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
     <link rel="stylesheet" href="main.css" media="screen" title="no title">
   </head>
   <body>
     <div class="container">
-
-    <h2>Welcome to your LELLO Board</h2>
-
-    <ul id="tasks">
-
-    </ul>
-
-    <div class="input-group input-group-lg">
-      <span class="input-group-addon" id="sizing-addon1">Board</span>
-      <input type="text" class="form-control" placeholder="Board Name" aria-describedby="sizing-addon1" id='board-name'>
+      <div class="header">
+        <h2><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Welcome to your LELLO Board</h2>
+      </div>
+    <div class="buffer"></div>
+    <div class="col-md-6">
+      <div class="opaque">
+        <h2>Add a new task: </h2>
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Board</span>
+          <input type="text" class="form-control" placeholder="Board Name" aria-describedby="sizing-addon1" id='board-name'>
+        </div>
+        <br />
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Task Name</span>
+          <input type="text" class="form-control" placeholder="Task Name" aria-describedby="sizing-addon1" id="task-name">
+        </div>
+        <br />
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">Description</span>
+          <input type="text" class="form-control" placeholder="Task Description" aria-describedby="sizing-addon1" id="task-description">
+        </div>
+        <br />
+        <div class="checkbox">
+          <label>
+            <input type="radio" name="label" id="low" value="low"> Low Priority
+          </label>
+          <label>
+            <input type="radio" name="label" id="med" value="medium"> Medium Priority
+          </label>
+          <label>
+            <input type="radio" name="label" id="high" value="high"> High Priority
+          </label>
+        </div>
+        <br />
+        <button type="button" class="btn btn-default" id="add-task"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> ADD TASK</button>
+      </div>
     </div>
-    <br />
-    <div class="input-group input-group-lg">
-      <span class="input-group-addon" id="sizing-addon1">Task Name</span>
-      <input type="text" class="form-control" placeholder="Task Name" aria-describedby="sizing-addon1" id="task-name">
-    </div>
-    <br />
-    <div class="input-group input-group-lg">
-      <span class="input-group-addon" id="sizing-addon1">Description</span>
-      <input type="text" class="form-control" placeholder="Task Description" aria-describedby="sizing-addon1" id="task-description">
-    </div>
-    <br />
-    <div class="checkbox">
-      <label>
-        <input type="radio" name="label" id="low" value="low"> Low Priority
-      </label>
-      <label>
-        <input type="radio" name="label" id="med" value="medium"> Medium Priority
-      </label>
-      <label>
-        <input type="radio" name="label" id="high" value="high"> High Priority
-      </label>
-    </div>
-    <br />
-    <button type="button" class="btn btn-default" id="add-task">ADD TASK</button>
 
+    <div class="col-md-6">
+      <div class="opaque">
+        <h2>Current Boards</h2>
+        <ul id="boards">
+          <li id="one">something</li>
+          <li id="two">something</li>
+        </ul>
+      </div>
     </div>
+
+    <div class="col-md-6">
+      <div class="opaque">
+        <h2>Current Tasks</h2>
+        <ul id="tasks">
+          <li id="one">something</li>
+          <li id="two">something</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
     <script scr="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

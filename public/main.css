@@ -1,6 +1,35 @@
 html, body {
   background-color: #558a86;
   color: #fff;
+  font-family: 'Lato', sans-serif;
+}
+
+  h3, .header {
+  position: relative; /* child absolute */
+  margin: 0 -9999rem;
+  /* add back section padding value */
+  padding: 1rem 9999rem;
+  background: rgba(255, 255, 255, .2);
+  color: white;
+  text-align: center;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+}
+
+p, ul, li, label, input {
+  font-size: 1.5em;
+  font-family: 'Lato', sans-serif;
+}
+
+li {
+  border-bottom: 2px solid #b7c7bd;
+}
+
+li:first-child {
+  border-top: 2px solid #b7c7bd;
 }
 
 .btn {
@@ -17,4 +46,14 @@ html, body {
 
 input {
   border-radius: 15px;
+}
+
+.opaque {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 2%;
+}
+
+.buffer {
+  padding: 2% 0;
 }
