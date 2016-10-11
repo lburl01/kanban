@@ -29,15 +29,21 @@ $("#add-task").on('click', function createTask() {
   })
 })
 
-$.ajax({
-  method: 'GET',
-  url: '/api/tasks',
-  dataType: 'json'
-}).done(function(tasks) {
-  tasks.forEach(function(task) {
-    $tasks.append('<li>' + task.name + '</li>')})
-  var allBoards = tasks.map(function(task) { return task.board })
-  var uniqueBoards = $.unique(allBoards)
-  uniqueBoards.forEach(function(board) {
-    $boards.append('<li>' + board + '</li>')})
-})
+setInterval(function() {
+  console.log('hi mom')
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/tasks',
+    dataType: 'json'
+  }).done(function(tasks) {
+    $tasks.empty()
+    tasks.forEach(function(task) {
+      $tasks.append('<li>' + task.name + '</li>')})
+    var allBoards = tasks.map(function(task) { return task.board })
+    var uniqueBoards = $.unique(allBoards)
+    $boards.empty()
+    uniqueBoards.forEach(function(board) {
+      $boards.append('<li>' + board + '</li>')})
+  })
+}, 5000)
