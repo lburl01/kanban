@@ -7,19 +7,6 @@ var $taskDescription = $('#task-description')
 
 var $addTaskBtn = $('#add-task')
 
-$.ajax({
-  method: 'GET',
-  url: '/api/tasks',
-  dataType: 'json'
-}).done(function(tasks) { // when this request is done, execute this function:
-  var all_boards = tasks.map(function(task) { return task.board })
-  var unique_boards = $.unique(all_boards)
-  // var taskNames = tasks.map(function(task) { return task.name })
-  $boards.text(unique_boards.join(', '))
-}).fail(function() {
-  console.log('help me')
-})
-
 $("#add-task").on('click', function createTask() {
   var description = $taskDescription.val();
   var board = $taskBoard.val();
@@ -47,6 +34,10 @@ $.ajax({
   url: '/api/tasks',
   dataType: 'json'
 }).done(function(tasks) {
-  tasks.map(function(task) {
+  tasks.forEach(function(task) {
     $tasks.append('<li>' + task.name + '</li>')})
+  var allBoards = tasks.map(function(task) { return task.board })
+  var uniqueBoards = $.unique(allBoards)
+  uniqueBoards.forEach(function(board) {
+    $boards.append('<li>' + board + '</li>')})
 })
