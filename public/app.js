@@ -29,6 +29,7 @@ $("#add-task").on('click', function createTask() {
       name: name,
       description: description,
       label: label
+      deleted: 'false'
     }
   }).done(function(response){
     console.log(this);
