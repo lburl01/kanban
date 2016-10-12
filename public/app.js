@@ -23,7 +23,7 @@ $("#add-task").on('click', function createTask() {
 
   return $.ajax({
     method: 'POST',
-    url: '/api/task/' + task.id,
+    url: '/api/task',
     data: {
       board: board,
       name: name,
