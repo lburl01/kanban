@@ -9,4 +9,11 @@ class Task < ActiveRecord::Base
     self.board.downcase!
     self.name.downcase!
   end
+
+  after_initialize :defaults, unless: :persisted?
+
+  def defaults
+    self.deleted ||= false # will set the default value only if it's nil
+  end
+end
 end
