@@ -33,7 +33,7 @@ get '/api/tasks' do
   Task.all.to_json
 end
 
-post '/api/task' do
+post '/api/task/:id' do
   task = Task.new(board: params[:board], name: params[:name], description: params[:description], label: params[:label])
   task.save if task.valid?
   status 201

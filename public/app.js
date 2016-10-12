@@ -23,7 +23,7 @@ $("#add-task").on('click', function createTask() {
 
   return $.ajax({
     method: 'POST',
-    url: '/api/task',
+    url: '/api/task/' + task.id,
     data: {
       board: board,
       name: name,
@@ -75,6 +75,3 @@ setInterval(function() {
         $boards.append('<li>' + board + '</li>')})
   })
 }, 10000)
-//
-// var $li = $('<li>').appendTo($boards)
-// $('<a>').attr('href', URL).text(board).appendTo($li)
