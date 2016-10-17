@@ -6,9 +6,6 @@ Write your own API and the AJAX, JS, and HTML/CSS to make it a functional Heroku
 ####My Program: 
 A Trello clone
 
-####The Details: 
-App can be found at: https://lello.herokuapp.com/index.html
-
 Functionality: 
 * You can use a toggle button to reveal the "Add Task" input fields and submit button
 * The Current Boards container utilizes filtering to only reveal one of each Board name (no duplicates allowed to be printed)
